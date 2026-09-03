@@ -422,7 +422,8 @@ function getLayerAndStyle(values) {
 }
 
 
-function getEditLayer(layer) {
+function getEditLayer(values) {
+    let layer = values.layerAndStyle.layerName;
     let editLayer = undefined;
 
     switch (layer) {
@@ -506,7 +507,7 @@ async function main() {
     values.objectCategoryURI = getObjectCategoryURI(record);
     values.areaTypeURI = getAreaTypeURI(record);
     values.layerAndStyle = getLayerAndStyle(values);
-    values.editLayer = getEditLayer(values.layerAndStyle.layerName);
+    values.editLayer = getEditLayer(values);
     
     console.log('Values:', JSON.stringify(values, null, 2));
 
